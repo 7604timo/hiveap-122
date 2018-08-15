@@ -1,0 +1,31 @@
+uboot> setenv serverip 192.168.1.10
+uboot> setenv ipaddr 192.168.1.2
+uboot> tftpboot 0x81000000 openwrt-ar71xx-nand-hiveap-121-initramfs-kernel.bin
+Trying bcmiproc_eth-0
+TFTP blocksize = 1400, timeout = 1000 ms
+Using bcmiproc_eth-0 device
+TFTP from server 192.168.1.10; our IP address is 192.168.1.2
+Filename 'openwrt-ar71xx-nand-hiveap-121-initramfs-kernel.bin'.
+Load address: 0x81000000
+Loading: send option "timeout 1"
+Got OACK: timeout 1
+Blocksize ack: 1400, 1400
+#################################################################
+         #################################################################
+         #################################################################
+         #################################################################
+         #####################################
+done
+Bytes transferred = 4144369 (3f3cf1 hex)
+uboot> bootm 0x81000000
+## Current stack ends at 0x00c95d00 *  kernel: cmdline image address = 0x81000000
+## Booting kernel from Legacy Image at 81000000 ...
+   Image Name:   MIPS OpenWrt Linux-4.9.119
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    4144305 Bytes = 4 MiB
+   Load Address: 80060000
+   Entry Point:  80060000
+   Verifying Checksum ... OK
+Unsupported Architecture 0x5
+ERROR: can't get kernel image!
+Command failed, result=1uboot> 
