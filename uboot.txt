@@ -1,0 +1,74 @@
+U-Boot 2012.10 (Apr 18 2017 - 00:13:34)
+
+U-Boot code: 30000000 -> 30089C84  BSS: -> 30136CA0
+IRQ Stack: 0badc0de
+FIQ Stack: 0badc0de
+monitor len: 00136CA0
+ramsize: 00F00000
+TLB table at: 00ff0000
+Top of RAM usable for U-Boot at: 00ff0000
+Reserving 1243k for U-Boot at: 00eb8000
+Reserving 2176k for malloc() at: 00c98000
+Reserving 32 Bytes for Board Info at: 00c97fe0
+Reserving 136 Bytes for Global Data at: 00c97f58
+Reserving 8192 Bytes for IRQ stack at: 00c95f58
+New Stack Pointer is: 00c95f48
+DRAM:  256 MiB
+relocation Offset is: d0eb8000
+relocate_code: sp = c95f48, id = c97f58, addr = eb8000
+WARNING: Caches not enabled
+monitor flash len: 00136CA0
+---> caches_on
+---> MMU enabled
+---> blast_dcache
+---> blast_icache
+---> caches_on DONE
+Now running in RAM - U-Boot at: 00eb8000
+mem malloc init: 00c98000, 00220000
+NAND:   NAND_FLASH_DEVICE_ID_ADDR = 18008194
+Done that
+Micron MT29F4G08ABACA, blocks per lun: 1000 lun count: 1
+
+*WARNING* Invalid strap options for this NAND: page=0 type=3
+Overriding invalid strap options: strap_type=2
+128 KiB blocks, 2 KiB pages, 16B OOB, 8-bit
+NAND:   chipsize
+total 0 bad blocks,LIST:
+now the up level will see a good flash chip no bad block which size is 20000000
+before nvram partition, there are 0 bad blocks
+512 MiB
+env_relocate
+Using default environment
+
+Destroy Hash Table: 00f40520 table = (null)
+Create Hash Table: N=144
+INSERT: free(data = 00c9a788)
+INSERT: done
+env_relocate done
+In:    serial
+Out:   serial
+Err:   serial
+Net:   Registering eth
+Broadcom BCM IPROC Ethernet driver 0.1
+Using GMAC0 (0x18005000)
+et0: ethHw_chipAttach: Chip ID: 0xb95c; phyaddr: 0x19
+Read  [0x18000064] = 0x00000000
+Write [0x18000064] = 0x00000000
+Read  [0x18000068] = 0x00000000
+Write [0x18000068] = 0x00000004
+Write [0x18000064] = 0x00000004
+bcmiproc_eth-0
+MAC address is c866:5d17:2800
+
+NVRAM_MAGIC found at offset 700000
+nvram_init: ret 1
+### main_loop entered: bootdelay=3
+
+### main_loop: bootcmd="run boot1"
+Reset TPM chip...
+Reset AUTH chip...
+use back up image 1 for boot
+hdelete: DELETE key "vlan"
+hdelete: DELETE key "nvlan"
+sync boot static info size = 0x1d4
+Hit any key to stop autoboot:  0
