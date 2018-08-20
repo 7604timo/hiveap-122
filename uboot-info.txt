@@ -1,0 +1,158 @@
+uboot> help
+bdinfo              - print Board Info structure
+boot_trx1           - boot    - boot default, i.e., run 'bootcmd'
+
+boot_trx2           - boot    - boot default, i.e., run 'bootcmd'
+
+boot_vmlinuz        - boot_vmlinuz    - boot default, i.e., run 'bootcmd'
+
+bootm               - boot application image from memory
+coninfo             - print console devices and information
+cp                  - memory copy
+dhcp                - boot image via network using DHCP/TFTP protocol
+diag                - perform board diagnostics
+dump_hw_info        - display HW config section.
+echo                - echo args to console
+editenv             - edit environment variable
+env                 - environment handling commands
+exit                - exit script
+false               - do nothing, unsuccessfully
+format_flash_fs     - format flash file system.
+help                - print command description/usage
+i2c                 - I2C sub-system
+image_flash         - (force to)upgrade image via network using TFTP protocol.
+image_netboot       - boot image via network using TFTP protocol.
+itest               - return true/false on integer compare
+loadb               - load binary file over serial line (kermit mode)
+loads               - load S-Record file over serial line
+loady               - load binary file over serial line (ymodem mode)
+mfg                 - Diagnostic tools for MFG
+nand                - NAND sub-system
+nboot               - boot from NAND device
+nfs                 - boot image via network using NFS protocol
+ping                - send ICMP ECHO_REQUEST to network host
+print_bootinfo      - print boot info of device.
+print_bootparam     - print boot parameters of device.
+printenv            - print environment variables
+reset               - Perform RESET of the CPU
+saveenv             - save environment variables to persistent storage
+set_bootparam       - set boot parameters of device.
+set_current_image   - set_current_image - set image1 or image2 to boot from.
+setenv              - set environment variables
+showvar             - print local hushshell variables
+sleep               - delay execution for some time
+source              - run script from memory
+srab                - switch register access commands
+test                - minimal test like /bin/sh
+tftpboot            - boot image via network using TFTP protocol
+true                - do nothing, successfully
+usb                 - USB sub-system
+version             - print monitor, compiler and linker version
+uboot> diag
+Available hardware tests:
+Use 'diag [<test1> [<test2> ...]]' to get more info.
+Use 'diag run [<test1> [<test2> ...]]' to run tests.
+uboot> print_bootinfo
+Bootloader static boot info:
+magic                : 0x12e48de
+version              : 0x1
+size                 : 468
+region code          : 1
+country code         : 826
+bl_idx               : 0
+app_idx              : 1
+region extend        : 0x0
+
+Bootloader info:
+type                 : 0xb
+version              : 0x410
+build time           : 0x58f5bd13
+
+Application info:
+type                 : 0xa
+version              : 0x8000100
+build time           : 0x58f5bd13
+
+type                 : 0xa
+version              : 0x7000400
+build time           : 0x58450eb3
+
+Backup application info:
+flag                 : 0x1
+failure count        : 0x4
+type                 : 0x0
+
+flag                 : 0x1
+failure count        : 0x4
+type                 : 0x0
+
+backup app idx: 0x0, backup boot loader idx: 0x0
+uboot> print_bootparam
+Boot Parameters:
+flags                : 0x0
+Device IP            : 0.0.0.0
+Netmask              : 0.0.0.0
+TFTP Server IP       : 0.0.0.0
+Gateway IP           : 0.0.0.0
+VLAN ID              : 0
+NVLAN ID             : 0
+Netboot Always       : Disabled
+Netboot              : Disabled
+Boot File            :
+Netdump after crash  : Disabled
+Netdump File         : 01221702131048.netdump
+uboot> mfg
+Usage:
+mfg led
+    - Led test: White LED and Amber LED blind for 1 sec,
+                         only White LED light for 2 sec,
+                         only Amber LED light for 2 sec,
+                         White LED and Amber LED both blind for 1 sec
+                         White LED and Amber LED both light
+mfg btn
+    - Button test
+mfg nand
+    - NAND FLASH information
+mfg i2c
+    - Discover valid I2C chip addresses
+mfg tpm md [chip address(hex)] [size(hex)]
+    - Read from TPM component
+mfg tpm mw [chip address(hex)] [blob commands string(decimal) and seperate by ',']
+    - Write to TPM component
+mfg tpm code [returnCode(hex)]
+    - Explain the return code from TPM component
+mfg tpm auto
+    - Automatically test the TPM component
+mfg usb
+    - Discover USB interfaces
+mfg pci
+    - Discover valid I2C chip addresses
+mfg [u-boot command]
+    - Support to link any original u-boot command
+
+Command failed, result=1uboot> print
+  print_bootinfo print_bootparam printenv
+uboot> printenv
+EXPORT  table = 00f40520, htab.size = 149, htab.filled = 19, size = 0
+baudrate=9600
+boot1=boot_trx1
+boot2=boot_trx2
+bootargs=console=ttyS0,115200 ubi.mtd=5 root=ubi0:rootfs ro rootflags=sync rootfstype=ubifs user_debug=31
+bootcmd=run boot1
+bootdelay=3
+erase_ddr_data=nand erase 0x100000 0x200000
+erase_env=nand erase 0x140000 0xc0000
+ethact=bcmiproc_eth-0
+flash_boot=tftp 0x4000000 uboot-nvram.bin; nand erase 0 0x100000;                     nand write 0x4000000 0 ${filesize};
+flash_esdk_trx=tftp 0x82000000 linux.trx;nand erase 0x400000 0x2800000;               nand write 0x82000000 0x400000 ${filesize}
+loadaddr=0x02000000
+netretry=no
+stderr=serial
+stdin=serial
+stdout=serial
+tftpblocksize=1400
+tftptimeout=1000
+vmlinuz=tftp 0x4000000 vmlinuz; boot_vmlinuz  0x4000000 ${filesize}
+
+Environment size: 756/1048572 bytes
+uboot>
